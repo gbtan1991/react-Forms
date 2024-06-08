@@ -2,27 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
-
-.textinput{
+.textinput {
   transition: 0.1s ease;
 }
 
-.label{
+.label {
   transition: 0.2s ease;
 }
 
+.textinput:focus + .label,
+.textinput.has-content + .label {
+  top: -15px;
+  font-size: 12px;
+  height: auto;
+  background-color: #363937;
+}
 
-.textinput:focus + .label{
-   top: -15px;
-   font-size: 12px;
-   height: auto;
-   background-color: hsla(39, 74%, 68%, 1);
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
 
 input:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0 30px hsla(39, 74%, 68%, 1) inset !important;
-  box-shadow: 0 0 0 30px hsla(39, 74%, 68%, 1) inset !important;
-  -webkit-text-fill-color: hsla(30, 70%, 40%, 1) !important;
-  text-fill-color: hsla(30, 70%, 40%, 1) !important;
-  
+  -webkit-box-shadow: 0 0 0 30px #363937 inset !important;
+  box-shadow: 0 0 0 30px #363937 inset !important;
+  -webkit-text-fill-color: #ffffff !important;
+  text-fill-color: #ffffff !important;
+}
+
+select option{
+  background-color: #363937;
+}
+
+
+.textinput-date{
+  color-scheme: dark;
 }

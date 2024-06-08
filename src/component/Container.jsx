@@ -4,7 +4,7 @@ import Form from './Form'
 
 const Container = () => {
   return (
-    <div>
+    <div className='w-full h-full '>
       <Header />
       <Form />
     </div>
