@@ -1,12 +1,10 @@
 import React, { useState } from "react";
-import { CiUser } from "react-icons/ci";
 
 const Form = () => {
   const [name, setName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [bookingTime, setBookingTime] = useState("");
   const [bookingDate, setBookingDate] = useState("");
-  const [diningPackage, setDiningPackage] = useState("");
   const [guests, setGuests] = useState("");
 
   return (
@@ -85,6 +83,23 @@ const Form = () => {
                 <option value="dinner3">Dinner Time - 8:00 PM</option>
               </select>
             </div>
+
+            <div>
+            <h3>How many pax shall we serve?</h3>
+            <div className="flex space-x-4">
+              {['2', '4', '6', '8', '10'].map((num) => (
+                <div key={num} className="relative">
+                  <input type="radio" id={`number_${num}`} name="guests" className="hidden peer" />
+                  <label htmlFor={`number_${num}`} className="cursor-pointer rounded-full border-2 border-tigers-eye px-4 py-2 text-tigers-eye text-xl font-semibold peer-checked:bg-tigers-eye peer-checked:text-white">
+                    {num}
+                  </label>
+                </div>
+              ))}
+            </div>  
+            </div>
+            
+
+
 
 
           </form>
