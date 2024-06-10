@@ -4,9 +4,11 @@ import Form from './Form'
 
 const Container = () => {
   return (
-    <div className='w-full h-full '>
+    <div className='w-full h-full min-w-[320px]'>
+      <div>
       <Header />
       <Form />
+      </div>
     </div>
   )
 }
