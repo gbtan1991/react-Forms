@@ -40,7 +40,7 @@ const Form = () => {
 
             <div className="relative border-b-[1px] border-white">
               <input
-                type="number"
+                type="tel"
                 id="phone-number"
                 name="phone-number"
                 value={phoneNumber}
@@ -61,7 +61,13 @@ const Form = () => {
             </div>
                 
             <div className="relative border-b-[1px] border-white">
-              <input type="date" value={bookingDate} onChange={(e) => setBookingDate(e.target.value)} className="w-full bg-transparent outline-none text-white textinput-date"  />
+              <input
+                type="date"
+                value={bookingDate}
+                onChange={(e) => setBookingDate(e.target.value)}
+                className="w-full bg-transparent outline-none text-white textinput-date"
+                required
+              />
             </div>
               
 
@@ -71,6 +77,7 @@ const Form = () => {
                 value={bookingTime}
                 onChange={(e) => setBookingTime(e.target.value)}
                 className="w-full bg-transparent outline-none text-white"
+                required
               >
                 <option value="" disabled hidden>
                   Select Meal Time
@@ -84,23 +91,36 @@ const Form = () => {
               </select>
             </div>
 
-            <div>
-            <h3>How many pax shall we serve?</h3>
-            <div className="flex space-x-4">
-              {['2', '4', '6', '8', '10'].map((num) => (
-                <div key={num} className="relative">
-                  <input type="radio" id={`number_${num}`} name="guests" className="hidden peer" />
-                  <label htmlFor={`number_${num}`} className="cursor-pointer rounded-full border-2 border-tigers-eye px-4 py-2 text-tigers-eye text-xl font-semibold peer-checked:bg-tigers-eye peer-checked:text-white">
-                    {num}
-                  </label>
-                </div>
-              ))}
-            </div>  
+            <div className="flex flex-col gap-5 text-left">
+              <h3 className="text-white">How many guests will be joining you?</h3>
+              <div className="flex justify-around">
+                {['2', '4', '6', '8', '10'].map((num) => (
+                  <div key={num} className="relative">
+                    <input
+                      type="radio"
+                      id={`number_${num}`}
+                      name="guests"
+                      value={num}
+                      checked={guests === num}
+                      onChange={(e) => setGuests(e.target.value)}
+                      className="hidden peer inputGuest"
+                    />
+                    <label
+                      htmlFor={`number_${num}`}
+                      className="cursor-pointer outline-none rounded-full border-2 border-white px-3 text-white py-1  text-xl peer-checked:bg-white peer-checked:text-onyx "
+                    >
+                      {num}
+                    </label>
+                  </div>
+                ))}
+              </div>
             </div>
-            
 
-
-
+             <div>
+              <button className="w-full py-3 rounded-md font-bold bg-onyx text-white border border-white hover:bg-white hover:text-black transition-all duration-300">
+                <span className=" ">Book Now</span>
+              </button>
+              </div>  
 
           </form>
         </fieldset>
