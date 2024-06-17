@@ -1,16 +1,16 @@
-import React from 'react'
-import Header from './Header'
-import Form from './Form'
+import React from 'react';
+import Header from './Header';
+import Form from './Form';
 
 const Container = () => {
   return (
-   
-      <div className='w-full h-full min-w-[320px]'>
-      <Header />
-      <Form />
+    <div className="grid place-content-center min-h-screen w-full bg-desert-sand ">
+      <div className="block lg:flex lg:items-stretch lg:justify-center w-full h-full">
+        <Header />
+        <Form />
       </div>
-   
-  )
-}
+    </div>
+  );
+};
 
-export default Container
+export default Container;
