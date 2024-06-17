@@ -7,15 +7,43 @@ const Form = () => {
   const [bookingDate, setBookingDate] = useState("");
   const [guests, setGuests] = useState("");
 
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    const formData = {
+      name,
+      phoneNumber,
+      bookingTime,
+      bookingDate,
+      guests,
+    };
+
+    console.log("Form Data:", formData);
+    // Here you can send the formData object to a server or handle it as needed
+    // For example, using fetch:
+    /*
+    fetch('your-api-endpoint', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+      .then(response => response.json())
+      .then(data => console.log('Success:', data))
+      .catch((error) => console.error('Error:', error));
+    */
+  };
+
   return (
-    <div className="bg-onyx w-auto mx-4 mb-5 p-4 rounded-br-xl rounded-bl-xl">
+    <div className="bg-onyx mx-4 mb-5 p-4 rounded-br-xl rounded-bl-xl lg:mx-0 lg:mb-0 lg:rounded-tr-xl lg:rounded-bl-none">
       <div className="grid place-content-center text-center h-full w-full">
         <h1 className="text-xl font-bold w-auto text-white">
           Book your Italian experience.
         </h1>
 
         <fieldset>
-          <form action="#" method="get" className="flex flex-col gap-5 my-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5 my-5">
             <div className="relative border-b-[1px] border-white">
               <input
                 type="text"
@@ -70,7 +98,6 @@ const Form = () => {
               />
             </div>
               
-
             <div className="border-b-[1px] border-white">
               <select
                 id="options"
@@ -116,12 +143,14 @@ const Form = () => {
               </div>
             </div>
 
-             <div>
-              <button className="w-full py-3 rounded-md font-bold bg-onyx text-white border border-white hover:bg-white hover:text-black transition-all duration-300">
-                <span className=" ">Book Now</span>
+            <div>
+              <button
+                type="submit"
+                className="w-full py-3 rounded-md font-bold bg-onyx text-white border border-white hover:bg-white hover:text-black transition-all duration-300"
+              >
+                <span>Book Now</span>
               </button>
-              </div>  
-
+            </div>  
           </form>
         </fieldset>
       </div>
